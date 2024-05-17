@@ -1,0 +1,39 @@
+name: release
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  packages: write
+  contents: write
+
+concurrency: release
+
+jobs:
+  artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.5
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: yarn
+          cache-dependency-path: yarn.lock
+          registry-url: https://npm.pkg.github.com
+          scope: "@progressmate"
+
+      - name: Install Yarn Dependencies
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: Publish Release
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
+        run: |
+          yarn publish --no-git-tag-version --new-version ${GITHUB_REF#refs/*/v}

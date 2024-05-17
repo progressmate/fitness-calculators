@@ -1,5 +1,5 @@
 {
-  "name": "fitness-calculators",
+  "name": "@progressmate/fitness-calculators",
   "version": "0.1.0",
   "description": "A collection of functions for various health & fitness related calculations",
   "main": "dist/index.js",
