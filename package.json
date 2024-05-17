@@ -10,6 +10,9 @@
   "author": "Progressmate Ltd",
   "license": "MIT",
   "private": false,
+  "files": [
+  "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "test": "jest",
