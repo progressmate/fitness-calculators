@@ -16,7 +16,7 @@
   "scripts": {
     "build": "tsup",
     "test": "jest",
-    "lint": "eslint src --fix"
+    "lint": "eslint src tests --fix"
   },
   "devDependencies": {
     "@eslint/js": "^9.3.0",
