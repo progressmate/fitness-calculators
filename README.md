@@ -1,6 +1,6 @@
 # fitness-calculators
 
-[![node](https://github.com/progressmate/fitness-calculators/actions/workflows/node.yml/badge.svg)](https://github.com/progressmate/fitness-calculators/actions/workflows/node.yml) [![release](https://github.com/progressmate/fitness-calculators/actions/workflows/release.yml/badge.svg)](https://github.com/progressmate/fitness-calculators/actions/workflows/release.yml)
+[![node](https://github.com/progressmate/fitness-calculators/actions/workflows/node.yml/badge.svg)](https://github.com/progressmate/fitness-calculators/actions/workflows/node.yml) [![release](https://github.com/progressmate/fitness-calculators/actions/workflows/release.yml/badge.svg)](https://github.com/progressmate/fitness-calculators/actions/workflows/release.yml) [![codecov](https://codecov.io/github/progressmate/fitness-calculators/graph/badge.svg?token=GKHNSMJMK2)](https://codecov.io/github/progressmate/fitness-calculators)
 
 A collection of functions that perform health & fitness calculations. All calculators use the metric system.
 
