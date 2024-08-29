@@ -54,6 +54,8 @@ const result = fluidIntake(weight, activeMinutes);
 
 ### TDEE (Total Daily Energy Expenditure)
 
+This functions supports common variations on the underlying equation which can be selected using the `TDEEEquation` enum.
+
 ```ts
 import { tdee, Gender, ActivityLevel, TDEEEquation } from "@progressmate/fitness-calculators";
 
