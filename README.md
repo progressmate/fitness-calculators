@@ -28,7 +28,7 @@ import { bmr, Gender, BMREquation } from "@progressmate/fitness-calculators";
 const height = 180;
 const weight = 76;
 const age = 30;
-const result = bmr(age, height, weight, Gender.Male, BMREquation.Mifflin);
+const result = bmr(BMREquation.Mifflin, { age, height, weight, gender: Gender.Male });
 ```
 
 ### IBW (Ideal Body Weight)
@@ -45,9 +45,26 @@ const result = ibw(height, Gender.Male, IBWEquation.Hamwi);
 ### Recommended Fluid Intake
 
 ```ts
-import {fluidIntake} from "@progressmate/fitness-calculators";
+import { fluidIntake } from "@progressmate/fitness-calculators";
 
 const weight = 76;
 const activeMinutes = 120;
 const result = fluidIntake(weight, activeMinutes);
+```
+
+### TDEE (Total Daily Energy Expenditure)
+
+```ts
+import { tdee, Gender, ActivityLevel, TDEEEquation } from "@progressmate/fitness-calculators";
+
+const height = 180;
+const weight = 76;
+const age = 30;
+const result = tdee(TDEEEquation.Mifflin, { 
+    height, 
+    weight, 
+    age, 
+    gender: Gender.Male, 
+    activityLevel: ActiviyLevel.Active,
+})
 ```
