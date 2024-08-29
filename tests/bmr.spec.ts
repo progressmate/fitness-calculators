@@ -8,7 +8,12 @@ describe(bmr, () => {
     const age = 30;
     const expected = 1740;
 
-    const actual = bmr(age, height, weight, Gender.Male, BMREquation.Mifflin);
+    const actual = bmr(BMREquation.Mifflin, {
+      age,
+      height,
+      weight,
+      gender: Gender.Male,
+    });
 
     expect(actual).toEqual(expected);
   });
@@ -19,7 +24,12 @@ describe(bmr, () => {
     const age = 30;
     const expected = 1574;
 
-    const actual = bmr(age, height, weight, Gender.Female, BMREquation.Mifflin);
+    const actual = bmr(BMREquation.Mifflin, {
+      age,
+      height,
+      weight,
+      gender: Gender.Female,
+    });
 
     expect(actual).toEqual(expected);
   });
@@ -30,13 +40,12 @@ describe(bmr, () => {
     const age = 30;
     const expected = 1800;
 
-    const actual = bmr(
+    const actual = bmr(BMREquation.HarrisBenedict, {
       age,
       height,
       weight,
-      Gender.Male,
-      BMREquation.HarrisBenedict,
-    );
+      gender: Gender.Male,
+    });
 
     expect(actual).toEqual(expected);
   });
@@ -47,14 +56,31 @@ describe(bmr, () => {
     const age = 30;
     const expected = 1578;
 
-    const actual = bmr(
+    const actual = bmr(BMREquation.HarrisBenedict, {
       age,
       height,
       weight,
-      Gender.Female,
-      BMREquation.HarrisBenedict,
-    );
+      gender: Gender.Female,
+    });
 
     expect(actual).toEqual(expected);
+  });
+
+  it("should calculate BMR using Katch-McArdle", () => {
+    const weight = 76;
+    const bodyFat = 10;
+    const expected = 1847;
+    const actual = bmr(BMREquation.Katch, {
+      weight,
+      bodyFat,
+    });
+
+    expect(actual).toEqual(expected);
+  });
+
+  it("should throw an error for invalid options", () => {
+    expect(() => bmr(BMREquation.Katch, {})).toThrowError();
+    expect(() => bmr(BMREquation.Mifflin, {})).toThrowError();
+    expect(() => bmr(BMREquation.HarrisBenedict, {})).toThrowError();
   });
 });
